@@ -95,5 +95,5 @@
     (loop :repeat octaves :do
           (incf result (* (funcall fn xa ya) amp))
           (incf div amp)
-          (setf xa (* ya lacunarity) ya (* ya lacunarity) amp (* amp persistence)))
+          (setf xa (* xa lacunarity) ya (* ya lacunarity) amp (* amp persistence)))
     (/ result div)))

@@ -12,10 +12,3 @@
 
 (defun smootherstep (a b s)
   (lerp a b (smoother s)))
-
-
-(defun test ()
-  (let ((a 0) (b 100))
-    (loop :for i :from 0 :to 1 :by 0.1 :do 
-          (format t "~a~%" 
-                  (smootherstep a b i)))))
