@@ -6,9 +6,9 @@
   "converts fahrenheit to celsius."
   (/ (- fahr 32) 1.8))
 
-(defun fn-to-table (fn &key (lower 0) (upper 10))
+(defun fn-to-table (fn &key (lower 0) (upper 100) (step 10))
   "uses a funcion to create a alist of input/output"
-  (loop :for i :from lower :to upper :collect
+  (loop :for i :from lower :to upper :by step :collect
         (list i (funcall fn i))))
 
 (defun plot-table (title table)
@@ -17,6 +17,6 @@
   (format t "--------------~%")
   (format t "~:{ ~a~10t~a~%~}" table))
 
-(defun plot-func (title func &key (lower 0) (upper 10))a
+(defun plot-func (title func &key (lower 0) (upper 100) (step 10))
   "pretty-prints a table from a function"
-  (plot-table title (fn-to-table func :lower lower :upper upper)))
+  (plot-table title (fn-to-table func :lower lower :upper upper :step step)))

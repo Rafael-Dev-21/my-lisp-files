@@ -1,6 +1,6 @@
-(defparameter *width* 100)
+(defparameter *width* 45)
 (defparameter *height* 30)
-(defparameter *jungle* '(45 10 10 10))
+(defparameter *jungle* '(15 10 10 10))
 (defparameter *plant-energy* 80)
 (defparameter *plants* (make-hash-table :test #'equal))
 
@@ -19,8 +19,8 @@
                      :y      (ash *height* -1)
                      :energy 1000
                      :dir    0
-                     :genes  (loop repeat 8
-                                   collecting (1+ (random 10))))))
+                     :genes  (loop :repeat 8
+                                   :collect (1+ (random 10))))))
 
 (defun move (animal)
   (let ((dir (animal-dir animal))
